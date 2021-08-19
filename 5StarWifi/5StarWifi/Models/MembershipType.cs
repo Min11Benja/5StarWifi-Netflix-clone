@@ -7,9 +7,9 @@ namespace _5StarWifi.Models
 {
     public class MembershipType
     {
-        //Pay As you go Membership 30 days is type = 1
-        //Membership fee for 6 months is type 2
-        //Anual fee for 12 months is type 3
+        //1 month id = 1
+        //6 months id = 2
+        //12 months id = 3
         public byte Id { get; set; }
         public decimal SignUpFee { get; set; }
         public byte DurationInMonths { get; set; }

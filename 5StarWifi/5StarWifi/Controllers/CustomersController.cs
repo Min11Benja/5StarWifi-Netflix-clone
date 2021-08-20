@@ -18,15 +18,16 @@ namespace _5StarWifi.Controllers
         }
         // GET: Customers/CustomersTable
         public ViewResult CustomersTable() {
-            return View();
-        }
-       
+            var customers = GetCustomers();
+            return View(customers);
+        }       
         private IEnumerable<Customer> GetCustomers() {
             return new List<Customer>
             {
-                new Customer { Id = 1, Name = "John1"},
-                new Customer { Id = 2, Name = "Pablo2"},
-                new Customer { Id = 3, Name = "Teresa3"}
+                new Customer { Id = 1, Name = "John1", Email = "jtren@gmail.com", Password = "qwe123", isSubscribedToCustomer = true, PaymentStatus = "Payed" , MembershipTypeId = 1},
+                new Customer { Id = 2, Name = "Pablo2", Email = "ppp@gmail.com", Password = "ppp123", isSubscribedToCustomer = true, PaymentStatus = "Pending" ,MembershipTypeId = 2},
+                new Customer { Id = 3, Name = "Teresa3", Email = "tete@gmail.com", Password = "123tete12", isSubscribedToCustomer = false, PaymentStatus = "Canceled" ,MembershipTypeId = 3},
+                new Customer { Id = 3, Name = "Benjamin", Email = "redoxz@gmail.com", Password = "1fffade12", isSubscribedToCustomer = false, PaymentStatus = "Debt" ,MembershipTypeId = 3},
             };
         }
     }

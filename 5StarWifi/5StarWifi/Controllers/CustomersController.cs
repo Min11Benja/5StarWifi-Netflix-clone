@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _5StarWifi.Models;
+using _5StarWifi.ViewModels;
 
 namespace _5StarWifi.Controllers
 {
@@ -39,6 +40,7 @@ namespace _5StarWifi.Controllers
 
             return View(customers);
         }
+        // Customers/Details/2
         public ActionResult Details(int id) {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customer == null)
@@ -49,16 +51,28 @@ namespace _5StarWifi.Controllers
                 return View(customer);
             }
         }
-        private IEnumerable<Customer> GetCustomers() {
-            //hard coded list of customers for testing
-            return new List<Customer>
+        // Customers/Add/
+        public ActionResult Add()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new AddCustomerViewModel
             {
-                new Customer { Id = 1, Name = "John1", Email = "jtren@gmail.com", Password = "qwe123", isSubscribedToCustomer = true, PaymentStatus = "Payed" , MembershipTypeId = 1},
-                new Customer { Id = 2, Name = "Pablo2", Email = "ppp@gmail.com", Password = "ppp123", isSubscribedToCustomer = true, PaymentStatus = "Pending" ,MembershipTypeId = 2},
-                new Customer { Id = 3, Name = "Teresa3", Email = "tete@gmail.com", Password = "123tete12", isSubscribedToCustomer = false, PaymentStatus = "Canceled" ,MembershipTypeId = 3},
-                new Customer { Id = 3, Name = "Benjamin", Email = "redoxz@gmail.com", Password = "1fffade12", isSubscribedToCustomer = false, PaymentStatus = "Debt" ,MembershipTypeId = 3},
+                MembershipTypes = membershipTypes
             };
-            //get customers from the Data Base instead
+            return View(viewModel);            
         }
+        // Customers/Edit/2
+        public ActionResult Edit(int id) {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(customer);
+            }            
+        }
+       
     }
 }

@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+@model _5StarWifi.Models.Customer
+
+<!--begin::Container-->
+<div class="d-flex flex-row flex-column-fluid container">
+    <!--begin::Content Wrapper-->
+    <div class="main d-flex flex-column flex-row-fluid">
+        <!--begin::Subheader-->
+        <div class="subheader py-2 py-lg-6 subheader-transparent" id="kt_subheader">
+            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center flex-wrap mr-1">
+                    <!--begin::Page Heading-->
+                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                        <!--begin::Breadcrumb-->
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Home</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Customers</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Edit</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">@Model.Id</a>
+                            </li>
+                        </ul>
+                        <!--end::Breadcrumb-->
+                    </div>
+                    <!--end::Page Heading-->
+                </div>
+                <!--end::Info-->
+
+            </div>
+        </div>
+        <!--end::Subheader-->
+            <div class="content flex-column-fluid pt-0" id="kt_content">            
+                <form class="form" id="kt_form">
+                    <div class="card-body">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <div class="col-xl-7 my-2">
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <label class="col-3"></label>
+                                    <div class="col-9">
+                                        <h6 class="text-dark font-weight-bold mb-10">Customer Info:</h6>
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+                                <!--begin::Group-->
+                                <div class="form-group row">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Name</label>
+                                    <div class="col-9">
+                                        <input class="form-control form-control-lg form-control-solid" type="text" value="@Model.Name">
+                                    </div>
+                                </div>
+                                <!--end::Group-->
+                                <!--begin::Group-->
+                                <div class="form-group row">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Email</label>
+                                    <div class="col-9">
+                                        <input class="form-control form-control-lg form-control-solid" type="text" value="@Model.Email">
+                                    </div>
+                                </div>
+                                <!--end::Group-->
+                                <!--begin::Group-->
+                                <div class="form-group row">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Password</label>
+                                    <div class="col-9">
+                                        <input class="form-control form-control-lg form-control-solid" type="text" value="@Model.Password">
+                                        <span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
+                                    </div>
+                                </div>
+                                <!--end::Group-->
+                                <!--Service-->
+                                <div class="form-group row mb-2">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Service</label>
+                                    <div class="col-3">
+                                        <span class="switch">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="select">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--end:service-->
+                                <!--start:status-->
+                                <div class="form-group row">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Payment</label>
+                                    <div class="col-9">
+                                        <select class="form-control form-control-lg form-control-solid">
+                                            <option>@Model.PaymentStatus</option>
+                                            <option>Payed</option>
+                                            <option>Pending</option>
+                                            <option>Canceled</option>
+                                            <option>Debt</option>
+                                            <option>Unknowned</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--end:status-->
+                                <!--start:type-->
+                                <div class="form-group row">
+                                    <label class="col-form-label col-3 text-lg-right text-left">Type</label>
+                                    <div class="col-9">
+                                        <select class="form-control form-control-lg form-control-solid">
+                                            <option>@Model.MembershipTypeId</option>
+                                            <option>1 month</option>
+                                            <option>6 month</option>
+                                            <option>12 month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--end:type-->
+
+                            </div>
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <div class="card-footer pb-0">
+                        <div class="row">
+                            <div class="col-xl-2"></div>
+                            <div class="col-xl-7">
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-9">
+                                        <a href="#" class="btn btn-light-primary font-weight-bold">Save changes</a>
+                                        <a href="#" class="btn btn-clean font-weight-bold">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--end::Content-->
+    </div>
+    <!--begin::Content Wrapper-->
+</div>
+<!--end::Container-->

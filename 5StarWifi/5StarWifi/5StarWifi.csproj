@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202108220424566_RemovedPaymentStatus.designer.cs">
       <DependentUpon>202108220424566_RemovedPaymentStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108220426482_AddCustomerAdress.cs" />
+    <Compile Include="Migrations\202108220426482_AddCustomerAdress.designer.cs">
+      <DependentUpon>202108220426482_AddCustomerAdress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -326,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108220424566_RemovedPaymentStatus.resx">
       <DependentUpon>202108220424566_RemovedPaymentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108220426482_AddCustomerAdress.resx">
+      <DependentUpon>202108220426482_AddCustomerAdress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

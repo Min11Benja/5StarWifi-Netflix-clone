@@ -9,6 +9,19 @@ namespace _5StarWifi.Controllers
 {
     public class CustomersController : Controller
     {
+        //DB Context to acces the Data Base
+        private ApplicationDbContext _context;
+        //Initialize in the Customers constructor
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        //Since _context is a disposible method we need to dispose it properly with -> 
+        //Overide the base method of the base controller class
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Customers
         public ActionResult Index()
         {
@@ -22,6 +35,7 @@ namespace _5StarWifi.Controllers
             return View(customers);
         }       
         private IEnumerable<Customer> GetCustomers() {
+            //hard coded list of customers for testing
             return new List<Customer>
             {
                 new Customer { Id = 1, Name = "John1", Email = "jtren@gmail.com", Password = "qwe123", isSubscribedToCustomer = true, PaymentStatus = "Payed" , MembershipTypeId = 1},
@@ -29,6 +43,7 @@ namespace _5StarWifi.Controllers
                 new Customer { Id = 3, Name = "Teresa3", Email = "tete@gmail.com", Password = "123tete12", isSubscribedToCustomer = false, PaymentStatus = "Canceled" ,MembershipTypeId = 3},
                 new Customer { Id = 3, Name = "Benjamin", Email = "redoxz@gmail.com", Password = "1fffade12", isSubscribedToCustomer = false, PaymentStatus = "Debt" ,MembershipTypeId = 3},
             };
+            //get customers from the Data Base instead
         }
     }
 }

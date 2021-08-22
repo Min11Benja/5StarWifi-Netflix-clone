@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="card-body">
-                    
+
                     <!--begin: table-->
                     <div class="table-responsive-lg">
                         <table class="table table-bordered table-hover">
@@ -63,75 +63,115 @@
                                     <th scope="col">Service</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Type</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                <tr>
+                                    <tr>
 
-                                    <th>@Html.DisplayFor(modelItem => item.Id)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Password)</td>
-                                    @{
-                                        if (item.isSubscribedToCustomer == true)
-                                        {
-                                            <td><span style="width: 123px;"><span class="label label-success label-dot mr-2"></span><span class="font-weight-bold text-success">Active</span></span></td>
+                                        <th>@Html.DisplayFor(modelItem => item.Id)</th>
+                                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Password)</td>
+                                        @{
+                                            if (item.isSubscribedToCustomer == true)
+                                            {
+                                                <td><span style="width: 123px;"><span class="label label-success label-dot mr-2"></span><span class="font-weight-bold text-success">Active</span></span></td>
+                                            }
+                                            else if (item.isSubscribedToCustomer == false)
+                                            {
+                                                <td><span style="width: 123px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Inactive</span></span></td>
+                                            }
                                         }
-                                        else if (item.isSubscribedToCustomer == false)
-                                        {
-                                            <td><span style="width: 123px;"><span class="label label-danger label-dot mr-2"></span><span class="font-weight-bold text-danger">Inactive</span></span></td>
+                                        @{
+                                            switch (item.PaymentStatus)
+                                            {
+                                                case "Payed":
+                                                    <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-success label-inline">Payed</span></span></td>
+                                                    break;
+                                                case "Pending":
+                                                    <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-warning label-inline">Pending</span></span></td>
+                                                    break;
+                                                case "Canceled":
+                                                    <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-info label-inline">Canceled</span></span></td>
+                                                    break;
+                                                case "Debt":
+                                                    <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-danger label-inline">Debt</span></span></td>
+                                                    break;
+                                                default:
+                                                    <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-info label-inline">Unknown</span></span></td>
+                                                    break;
+                                            }
+
                                         }
-                                    }
-                                    @{
-                                        switch (item.PaymentStatus)
-                                        {
-                                            case "Payed":
-                                                <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-success label-inline">Payed</span></span></td>
-                                                break;
-                                            case "Pending":
-                                                <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-warning label-inline">Pending</span></span></td>
-                                                break;
-                                            case "Canceled":
-                                                <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-info label-inline">Canceled</span></span></td>
-                                                break;
-                                            case "Debt":
-                                                <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-danger label-inline">Debt</span></span></td>
-                                                break;
-                                            default:
-                                                <td><span style="width: 123px;"><span class="label font-weight-bold label-lg label-light-info label-inline">Unknown</span></span></td>
-                                                break;
-                                        }
+                                        <td>
 
-                                    }
-                                                <td>
+                                            <div class="progress">
+                                                @{
+                                                    switch (item.MembershipTypeId)
+                                                    {
+                                                        case 1:
+                                                            <div class="progress-bar" role="progressbar" style="width: 8%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">8%</div>
+                                                            break;
+                                                        case 2:
+                                                            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                                                            break;
+                                                        case 3:
+                                                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                                            break;
+                                                        default:
+                                                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                                            break;
+                                                    }
 
-                                                    <div class="progress">
-                                                        @{
-                                                            switch (item.MembershipTypeId)
-                                                            {
-                                                                case 1:
-                                                                    <div class="progress-bar" role="progressbar" style="width: 8%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">8%</div>
-                                                                    break;
-                                                                case 2:
-                                                                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                                                    break;
-                                                                case 3:
-                                                                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                                                                    break;
-                                                                default:
-                                                                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-                                                                    break;
-                                                            }
+                                                }
+                                            </div>
 
-                                                        }
-                                                    </div>
+                                        </td>
 
-                                                </td>
-                                                                     
+                                        <td data-field="Actions" data-autohide-disabled="false" aria-label="null" class="datatable-cell">
+                                            <span style="overflow: visible; position: relative; width: 125px;">
+                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Lookup">
+                                                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo11/dist/../src/media/svg/icons/Design/ZoomPlus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24" />
+                                                                <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                                <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" />
+                                                                <path d="M10.5,10.5 L10.5,9.5 C10.5,9.22385763 10.7238576,9 11,9 C11.2761424,9 11.5,9.22385763 11.5,9.5 L11.5,10.5 L12.5,10.5 C12.7761424,10.5 13,10.7238576 13,11 C13,11.2761424 12.7761424,11.5 12.5,11.5 L11.5,11.5 L11.5,12.5 C11.5,12.7761424 11.2761424,13 11,13 C10.7238576,13 10.5,12.7761424 10.5,12.5 L10.5,11.5 L9.5,11.5 C9.22385763,11.5 9,11.2761424 9,11 C9,10.7238576 9.22385763,10.5 9.5,10.5 L10.5,10.5 Z" fill="#000000" opacity="0.3" />
+                                                            </g>
+                                                        </svg><!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
+                                                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo11/dist/../src/media/svg/icons/Design/Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24" />
+                                                                <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) " />
+                                                                <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1" />
+                                                            </g>
+                                                        </svg><!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo11/dist/../src/media/svg/icons/Home/Trash.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24" />
+                                                                <path d="M6,8 L18,8 L17.106535,19.6150447 C17.04642,20.3965405 16.3947578,21 15.6109533,21 L8.38904671,21 C7.60524225,21 6.95358004,20.3965405 6.89346498,19.6150447 L6,8 Z M8,10 L8.45438229,14.0894406 L15.5517885,14.0339036 L16,10 L8,10 Z" fill="#000000" fill-rule="nonzero" />
+                                                                <path d="M14,4.5 L14,3.5 C14,3.22385763 13.7761424,3 13.5,3 L10.5,3 C10.2238576,3 10,3.22385763 10,3.5 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+                                                            </g>
+                                                        </svg><!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                            </span>
+                                        </td>
 
-                                </tr>
+
+                                    </tr>
                                 }
                             </tbody>
                         </table>
@@ -140,6 +180,7 @@
                 </div>
             </div>
             <!--end::Card-->
+
         </div>
         <!--end::Content-->
     </div>

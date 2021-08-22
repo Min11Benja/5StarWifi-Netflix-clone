@@ -37,106 +37,105 @@
         </div>
         <!--end::Subheader-->
         <div class="content flex-column-fluid pt-0" id="kt_content">
-            @using (Html.BeginForm("Create", "Customers",
+            @using (Html.BeginForm("Save", "Customers",
             FormMethod.Post, new { @class = "form" }))
             {
-            <div class="card-body">
-                <!--begin::Row-->
-                <div class="row">
-                    <div class="col-xl-7 my-2">
-                        <!--begin::Row-->
-                        <div class="row">
-                            <label class="col-3"></label>
-                            <div class="col-9">
-                                <h6 class="text-dark font-weight-bold mb-10">Input customer information:</h6>
+                <div class="card-body">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-xl-7 my-2">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <label class="col-3"></label>
+                                <div class="col-9">
+                                    <h6 class="text-dark font-weight-bold mb-10">Input customer information:</h6>
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Row-->
-                        <!--begin::Group-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.Name, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Row-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Name, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Group-->
-                        <!--begin::Group-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.Email, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Email, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Group-->
-                        <!--begin::Group-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.Password, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.TextBoxFor(m => m.Customer.Password, new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Password, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Password, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Group-->
-                        <!--begin::Group-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.Adress, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.TextBoxFor(m => m.Customer.Adress, new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Adress, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Adress, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Group-->
-                        <!--begin::Group-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.Phone, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Phone, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Group-->
-                        <!--start:type-->
-                        <div class="form-group row">
-                            @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                            <div class="col-9">
-                                @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "DurationInMonths"), "Select membership duration", new { @class = "form-control form-control-lg form-control-solid" })
+                            <!--end::Group-->
+                            <!--start:type-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "DurationInMonths"), "Select membership duration", new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end:type-->
-                        <!--start:startdate-->
-                        <div class="form-group row">
-                            <label class="col-form-label text-right col-lg-3 col-sm-12">Start Date</label>
-                            <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date">
+                            <!--end:type-->
+                            <!--start:startdate-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.StartDate, new { @class = "col-form-label text-right col-lg-3 col-sm-12" })
+                                <div class="col-lg-4 col-md-9 col-sm-12">
+                                    @Html.TextBoxFor(m => m.Customer.StartDate, new { id = "kt_datepicker_1", @class = "form-control" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end:startdate-->
-                        <!--start:enddate-->
-                        <div class="form-group row">
-                            <label class="col-form-label text-right col-lg-3 col-sm-12">End Date</label>
-                            <div class="col-lg-4 col-md-9 col-sm-12">
-                                <input type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" placeholder="Select date">
+                            <!--end:startdate-->
+                            <!--start:endtdate-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.EndDate, new { @class = "col-form-label text-right col-lg-3 col-sm-12" })
+                                <div class="col-lg-4 col-md-9 col-sm-12">
+                                    @Html.TextBoxFor(m => m.Customer.StartDate, new { id = "kt_datepicker_2", @class = "form-control" })
+                                </div>
                             </div>
-                        </div>
-                        <!--end:enddate-->
+                            <!--end:enddate-->
 
 
+                        </div>
                     </div>
-                </div>
-                <!--end::Row-->
-               
-                <!--Service-->
-                <div class="form-group row mb-2">
-                    @Html.LabelFor(m => m.Customer.isSubscribedToCustomer, new { @class = "col-form-label col-3 text-lg-right text-left" })
-                    <div class="col-3">
-                        <span class="switch">
-                            <label>
-                                @Html.CheckBoxFor(m => m.Customer.isSubscribedToCustomer)
-                                <span></span>
-                            </label>
-                            <br /><span class="form-text text-muted">Checked for Active uncheck for inactive</span>
-                        </span>
+                    <!--end::Row-->
+                    <!--Service-->
+                    <div class="form-group row mb-2">
+                        @Html.LabelFor(m => m.Customer.isSubscribedToCustomer, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                        <div class="col-3">
+                            <span class="switch">
+                                <label>
+                                    @Html.CheckBoxFor(m => m.Customer.isSubscribedToCustomer)
+                                    <span></span>
+                                </label>
+                                <br /><span class="form-text text-muted">Checked for Active uncheck for inactive</span>
+                            </span>
+                        </div>
                     </div>
+                    <!--end:service-->
                 </div>
-                <!--end:service-->
-            </div>
                 <div class="card-footer pb-0">
                     <div class="row">
                         <div class="col-xl-2"></div>
@@ -145,6 +144,7 @@
                                 <div class="col-3"></div>
                                 <div class="col-9">
                                     <button type="submit" class="btn btn-light-primary font-weight-bold">Save new customer</button>
+                                    <a href="/Customers/CustomersTable" class="btn btn-clean font-weight-bold">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -159,8 +159,10 @@
     <!--end::Content-->
 </div>
 <!--begin::Content Wrapper-->
+<!--start:Date picker-->
 <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#6993FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#E1E9FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
 @section Scripts
 {
     <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
 }
+<!--end:Date picker-->

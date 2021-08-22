@@ -231,6 +231,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddCustomerViewModel.cs" />
     <Compile Include="ViewModels\DetailsCustomerViewModel.cs" />
+    <Compile Include="ViewModels\UpdateCustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

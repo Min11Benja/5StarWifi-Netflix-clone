@@ -30,6 +30,9 @@ namespace _5StarWifi.Models
         //Optimization: when you only need the foreign key and not the whole object
         [Display(Name = "Duration")]
         public byte MembershipTypeId { get; set; }
-        
+        [StringLength(10)]
+        public string StartDate { get; set; }
+        [StringLength(10)]
+        public string EndDate { get; set; }
     }
 }

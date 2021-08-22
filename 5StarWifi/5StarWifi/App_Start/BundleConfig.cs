@@ -24,7 +24,8 @@ namespace _5StarWifi
                       "~/Scripts/plugins.bundle.js",
                       "~/Scripts/scripts.bundle.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(                      
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/plugins.bundle.css",
                       "~/Content/metronic-style.css",
                       "~/Content/site.css"));
         }

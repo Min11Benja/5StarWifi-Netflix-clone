@@ -43,12 +43,20 @@ namespace _5StarWifi.Controllers
         // Customers/Details/2
         public ActionResult Details(int id) {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var membershipType = _context.MembershipTypes.SingleOrDefault(m => m.Id == customer.MembershipTypeId);
+            
+            var viewModel = new DetailsCustomerViewModel
+            {
+                Customer = customer,
+                MembershipType = membershipType
+            };
+            
             if (customer == null)
             {
                 return HttpNotFound();
             }
             else {
-                return View(customer);
+                return View(viewModel);
             }
         }
         // Customers/Add/

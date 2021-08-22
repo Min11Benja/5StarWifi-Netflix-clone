@@ -40,6 +40,7 @@ namespace _5StarWifi.Controllers
 
             return View(customers);
         }
+      
         // Customers/Details/2
         public ActionResult Details(int id) {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -106,7 +107,7 @@ namespace _5StarWifi.Controllers
             }
             else {
                 //its an existing customer we need to update the info
-                //for this we need to get it fomr the Database first
+                //for this we need to get it from the Database first
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
                 //update its property based on the forms values
                 customerInDb.Name = customer.Name;
@@ -124,6 +125,26 @@ namespace _5StarWifi.Controllers
             _context.SaveChanges();            
             
             return Redirect("~/Customers/CustomersTable");
+        }
+        // Customers/Delete/2
+        public ActionResult Delete(int id)
+        {
+            var customerToDelete = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            //if the customers id exist we delete it and return the view else show error message            
+            if (customerToDelete == null)
+            {
+                //standard 404 error
+                return HttpNotFound();
+            }
+            else
+            {
+                //Delete the object with the specified key               
+                _context.Customers.Remove(customerToDelete);
+                //this wont add/update info to the DB just yet it just gets stored in memory to persist the changes we need to call this other method
+                _context.SaveChanges();
+                return Redirect("~/Customers/CustomersTable");
+            }
         }
     }
 }

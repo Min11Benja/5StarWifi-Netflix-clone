@@ -18,9 +18,7 @@ namespace _5StarWifi.Models
         [Required]
         [StringLength(255)]
         public string Password { get; set; }
-        [Required]
-        [StringLength(255)]
-        public string PaymentStatus { get; set; }
+        
         public bool isSubscribedToCustomer { get; set; }        
         //Asociates this Customer class with MembershipType 1, 2, 3
         public MembershipType MembershipType { get; set; }

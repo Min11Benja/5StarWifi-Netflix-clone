@@ -31,9 +31,24 @@ namespace _5StarWifi.Controllers
         }
         // GET: Customers/CustomersTable
         public ViewResult CustomersTable() {
-            var customers = GetCustomers();
+            //var customers = GetCustomers();
+
+            //DB set defined in out DB _context wich allows us to get all customers in our DB
+            var customers = _context.Customers.ToList();
+            //Since this is not emidiately invoked we will use the ToList method to envkke it now and save it as a list
+
             return View(customers);
-        }       
+        }
+        public ActionResult Details(int id) {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            else {
+                return View(customer);
+            }
+        }
         private IEnumerable<Customer> GetCustomers() {
             //hard coded list of customers for testing
             return new List<Customer>

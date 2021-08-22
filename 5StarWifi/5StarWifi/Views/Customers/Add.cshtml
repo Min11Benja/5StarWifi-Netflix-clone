@@ -76,6 +76,22 @@
                                 </div>
                             </div>
                             <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Adress, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Adress, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Phone, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
                             <!--Service-->
                             <div class="form-group row mb-2">
                                 @Html.LabelFor(m => m.Customer.isSubscribedToCustomer, new { @class = "col-form-label col-3 text-lg-right text-left" })
@@ -90,12 +106,11 @@
                                 </div>
                             </div>
                             <!--end:service-->
-                           
                             <!--start:type-->
                             <div class="form-group row">
-                                @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "col-form-label col-3 text-lg-right text-left" })                                
+                                @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "col-form-label col-3 text-lg-right text-left" })
                                 <div class="col-9">
-                                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "DurationInMonths"), "Select membership type" , new { @class = "form-control form-control-lg form-control-solid"})                                    
+                                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "DurationInMonths"), "Select membership duration", new { @class = "form-control form-control-lg form-control-solid" })
                                 </div>
                             </div>
                             <!--end:type-->
@@ -111,8 +126,7 @@
                             <div class="row">
                                 <div class="col-3"></div>
                                 <div class="col-9">
-                                    <a href="#" class="btn btn-light-primary font-weight-bold">Save changes</a>
-                                    <a href="#" class="btn btn-clean font-weight-bold">Cancel</a>
+                                    <button type="submit" class="btn btn-light-primary font-weight-bold">Save</button>                                                                        
                                 </div>
                             </div>
                         </div>

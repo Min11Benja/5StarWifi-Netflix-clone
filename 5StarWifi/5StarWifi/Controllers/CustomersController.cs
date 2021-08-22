@@ -61,6 +61,18 @@ namespace _5StarWifi.Controllers
             };
             return View(viewModel);            
         }
+        //Make sure this can only be called through an Http Post and not an Http Get
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            //MVC framework binds this viewModel to the submited data
+
+            //To add the parameters into our Customers DB table we need to add it to our _context 
+            _context.Customers.Add(customer);
+            //this wont add it to the DB just yet it just gets stored in memory to persist the changes we need to call this other method
+            _context.SaveChanges();
+            return Redirect("~/Customers/CustomersTable");
+        }
         // Customers/Edit/2
         public ActionResult Edit(int id) {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);

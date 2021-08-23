@@ -220,6 +220,26 @@
     <Compile Include="Migrations\202108222014044_AddStartEndDateVarChar10.designer.cs">
       <DependentUpon>202108222014044_AddStartEndDateVarChar10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108230333427_AddedMovieRating.cs" />
+    <Compile Include="Migrations\202108230333427_AddedMovieRating.designer.cs">
+      <DependentUpon>202108230333427_AddedMovieRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230335033_AddedMovieSourcePath.cs" />
+    <Compile Include="Migrations\202108230335033_AddedMovieSourcePath.designer.cs">
+      <DependentUpon>202108230335033_AddedMovieSourcePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230336167_AddedViewCount.cs" />
+    <Compile Include="Migrations\202108230336167_AddedViewCount.designer.cs">
+      <DependentUpon>202108230336167_AddedViewCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230338327_AddedMovieGenre.cs" />
+    <Compile Include="Migrations\202108230338327_AddedMovieGenre.designer.cs">
+      <DependentUpon>202108230338327_AddedMovieGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108230340547_AddedLikesDislikes.cs" />
+    <Compile Include="Migrations\202108230340547_AddedLikesDislikes.designer.cs">
+      <DependentUpon>202108230340547_AddedLikesDislikes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -351,6 +371,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108222014044_AddStartEndDateVarChar10.resx">
       <DependentUpon>202108222014044_AddStartEndDateVarChar10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230333427_AddedMovieRating.resx">
+      <DependentUpon>202108230333427_AddedMovieRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230335033_AddedMovieSourcePath.resx">
+      <DependentUpon>202108230335033_AddedMovieSourcePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230336167_AddedViewCount.resx">
+      <DependentUpon>202108230336167_AddedViewCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230338327_AddedMovieGenre.resx">
+      <DependentUpon>202108230338327_AddedMovieGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108230340547_AddedLikesDislikes.resx">
+      <DependentUpon>202108230340547_AddedLikesDislikes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

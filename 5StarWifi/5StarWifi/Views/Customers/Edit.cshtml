@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+@model _5StarWifi.ViewModels.UpdateCustomerViewModel
+
+<!--begin::Container-->
+<div class="d-flex flex-row flex-column-fluid container">
+    <!--begin::Content Wrapper-->
+    <div class="main d-flex flex-column flex-row-fluid">
+        <!--begin::Subheader-->
+        <div class="subheader py-2 py-lg-6 subheader-transparent" id="kt_subheader">
+            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center flex-wrap mr-1">
+                    <!--begin::Page Heading-->
+                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                        <!--begin::Breadcrumb-->
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Home</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Customers</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">Edit</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a href="" class="text-muted">@Model.Customer.Id</a>
+                            </li>
+                        </ul>
+                        <!--end::Breadcrumb-->
+                    </div>
+                    <!--end::Page Heading-->
+                </div>
+                <!--end::Info-->
+
+            </div>
+        </div>
+        <!--end::Subheader-->
+        <div class="content flex-column-fluid pt-0" id="kt_content">
+            @using (Html.BeginForm("Save", "Customers",
+            FormMethod.Post, new { @class = "form" }))
+            {
+                <div class="card-body">
+                    <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-xl-7 my-2">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <label class="col-3"></label>
+                                <div class="col-9">
+                                    <h6 class="text-dark font-weight-bold mb-10">Customer Info:</h6>
+                                </div>
+                            </div>
+                            <!--end::Row-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Name, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Email, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Password, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Password, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Adress, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Adress, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--begin::Group-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.Phone, new { @class = "col-form-label col-3 text-lg-right text-left" })                                
+                                <div class="col-9">
+                                    @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control form-control-lg form-control-solid" })
+                                </div>
+                            </div>
+                            <!--end::Group-->
+                            <!--start:type-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.MembershipTypeId, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-9">
+                                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypesList, "Id", "DurationInMonths"), "Select membership duration", new { @class = "form-control form-control-lg form-control-solid" })                                    
+                                </div>
+                            </div>
+                            <!--end:type-->
+                            <!--start:startdate-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.StartDate, new { @class = "col-form-label text-right col-lg-3 col-sm-12" })                                
+                                <div class="col-lg-4 col-md-9 col-sm-12">                                    
+                                    @Html.TextBoxFor(m => m.Customer.StartDate, new { id = "kt_datepicker_1", @class = "form-control" })
+                                </div>
+                            </div>
+                            <!--end:startdate-->
+                            <!--start:endtdate-->
+                            <div class="form-group row">
+                                @Html.LabelFor(m => m.Customer.EndDate, new { @class = "col-form-label text-right col-lg-3 col-sm-12" })                                
+                                <div class="col-lg-4 col-md-9 col-sm-12">
+                                    @Html.TextBoxFor(m => m.Customer.EndDate, new { id = "kt_datepicker_2", @class = "form-control" })                                    
+                                </div>
+                            </div>
+                            <!--end:enddate-->
+                            <!--Service-->
+                            <div class="form-group row mb-2">
+                                @Html.LabelFor(m => m.Customer.isSubscribedToCustomer, new { @class = "col-form-label col-3 text-lg-right text-left" })
+                                <div class="col-3">
+                                    <span class="switch switch-outline switch-icon switch-success">
+                                        <label>
+                                            @Html.CheckBoxFor(m => m.Customer.isSubscribedToCustomer)                                            
+                                            <span></span>
+                                        </label>
+                                        <span class="form-text text-muted">Turn their subscription ON/OFF</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end:service-->
+                        </div>
+                    </div>
+                    <!--end::Row-->
+                </div>
+                <div class="card-footer pb-0">
+                    <div class="row">
+                        <div class="col-xl-2"></div>
+                        <div class="col-xl-7">
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-9">
+                                    <!--hidden fields go here-->
+                                    @Html.HiddenFor(m => m.Customer.Id)
+                                    <button type="submit" class="btn btn-light-primary font-weight-bold">Save changes</button>
+                                    <a href="/Customers/CustomersTable" class="btn btn-clean font-weight-bold">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <!--end::Content-->
+</div>
+<!--begin::Content Wrapper-->
+</div>
+<!--end::Container-->
+<!--start:Date picker-->
+<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#6993FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#E1E9FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>
+}
+<!--end:Date picker-->

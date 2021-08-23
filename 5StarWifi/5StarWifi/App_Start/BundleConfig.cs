@@ -20,10 +20,13 @@ namespace _5StarWifi
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/plugins.bundle.js",
+                      "~/Scripts/scripts.bundle.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/plugins.bundle.css",
+                      "~/Content/metronic-style.css",
                       "~/Content/site.css"));
         }
     }
